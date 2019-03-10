@@ -1,3 +1,5 @@
 const { dbSyncAndSeed } = require("./db");
 
-dbSyncAndSeed().catch(ex => console.log(ex.message));
+dbSyncAndSeed()
+  .then(() => console.log("DB SYNC AND SEED COMPLETE"))
+  .catch(ex => console.error(ex.message));

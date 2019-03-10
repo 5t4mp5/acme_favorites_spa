@@ -1,12 +1,9 @@
-const db = require("./db");
-const { User, Thing } = require("./models");
+const dbSyncAndSeed = require("./seed");
+const { User, Thing, Favorite } = require("./models");
 
-const dbSyncAndSeed = () => {
-  return db
-    .authenticate()
-    .then(() => db.sync({ force: true }))
-    .then(() => console.log("db synced"))
-    .catch(ex => console.error(ex.message));
-};
+Favorite.belongsTo(Thing);
+Thing.hasMany(Favorite);
+Favorite.belongsTo(User);
+User.hasMany(Favorite);
 
-module.exports = { dbSyncAndSeed, User, Thing };
+module.exports = { dbSyncAndSeed, User, Thing, Favorite };
