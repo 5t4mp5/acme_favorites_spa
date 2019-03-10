@@ -1,5 +1,5 @@
 const db = require("./db");
-const { User } = require("./models");
+const { User, Thing } = require("./models");
 
 const dbSyncAndSeed = () => {
   return db
@@ -9,4 +9,4 @@ const dbSyncAndSeed = () => {
     .catch(ex => console.error(ex.message));
 };
 
-module.exports = { dbSyncAndSeed, User };
+module.exports = { dbSyncAndSeed, User, Thing };
