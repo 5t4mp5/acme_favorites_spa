@@ -101,31 +101,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Nav = ({ users, things }) => {
-  const links = [users, things];
+const Nav = ({ location, users, things }) => {
+  const links = ["/users", "/things"];
+  const linkRefs = {
+    "/users": users,
+    "/things": things
+  };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     "ul",
     { id: "nav", className: "nav nav-pills" },
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      "li",
-      { className: "nav-item" },
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-        { className: "nav-link", to: "/users" },
-        "Users ",
-        users.length
-      )
-    ),
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      "li",
-      { className: "nav-item" },
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-        { className: "nav-link", to: "/things" },
-        "Things ",
-        things.length
-      )
-    )
+    links.map(link => {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        "li",
+        { key: link, className: "nav-item" },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+          { className: `nav-link ${location.pathname.startsWith(link) ? "active" : ""}`, to: link },
+          link.slice(1),
+          " ",
+          linkRefs[link].length
+        )
+      );
+    })
   );
 };
 
@@ -272,10 +269,14 @@ class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           null,
           "Acme Favorites"
         ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], { users: users, things: things }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], { to: "/users" })
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { render: ({ location }) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], { users: users, things: things, location: location }) }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"],
+          null,
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) }),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], { to: "/users" })
+        )
       )
     );
   }
