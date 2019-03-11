@@ -9,7 +9,7 @@ const Things = ({ things }) => {
                     {thing.name}
                     <ul>
                         {thing.favorites.map(fave => {
-                            return <li key={fave.id}>{fave.user.name}</li>
+                            return <li key={fave.id}>Favorited by: {fave.user.name}</li>
                         })}
                     </ul>
                    </li>

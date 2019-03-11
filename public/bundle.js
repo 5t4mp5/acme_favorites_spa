@@ -115,6 +115,7 @@ const Things = ({ things }) => {
                         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                             "li",
                             { key: fave.id },
+                            "Favorited by: ",
                             fave.user.name
                         );
                     })
@@ -157,7 +158,10 @@ const Users = ({ users }) => {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               "li",
               { key: fave.id },
-              fave.thing.name
+              fave.thing.name,
+              " (Ranked: ",
+              fave.rank,
+              ")"
             );
           })
         )
