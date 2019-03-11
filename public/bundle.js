@@ -101,19 +101,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Nav = props => {
+const Nav = ({ users, things }) => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "div",
-    { id: "navbar", className: "row" },
+    "ul",
+    { id: "nav", className: "nav nav-pills" },
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-      { to: "/users" },
-      "Users"
+      "li",
+      { className: "nav-item" },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+        { className: "nav-link", to: "/users" },
+        "Users ",
+        users.length
+      )
     ),
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-      { to: "/things" },
-      "Things"
+      "li",
+      { className: "nav-item" },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+        { className: "nav-link", to: "/things" },
+        "Things ",
+        things.length
+      )
     )
   );
 };
@@ -261,7 +271,7 @@ class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           null,
           "Acme Favorites"
         ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], { users: users, things: things }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) })
       )

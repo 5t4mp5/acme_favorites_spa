@@ -30,7 +30,7 @@ class Main extends Component {
       <HashRouter>
         <div id="main" className="container">
           <h1>Acme Favorites</h1>
-          <Nav />
+          <Nav users={users} things={things} />
           <Route path="/users" render={() => <Users users={users} />} />
           <Route path="/things" render={() => <Things things={things} />} />
         </div>
