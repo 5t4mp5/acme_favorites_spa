@@ -102,6 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Nav = ({ users, things }) => {
+  const links = [users, things];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     "ul",
     { id: "nav", className: "nav nav-pills" },
@@ -273,7 +274,8 @@ class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         ),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], { users: users, things: things }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) })
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], { to: "/users" })
       )
     );
   }

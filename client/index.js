@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import Users from "./Users";
 import Things from "./Things";
@@ -33,6 +33,7 @@ class Main extends Component {
           <Nav users={users} things={things} />
           <Route path="/users" render={() => <Users users={users} />} />
           <Route path="/things" render={() => <Things things={things} />} />
+          <Redirect to="/users" />
         </div>
       </HashRouter>
     );
