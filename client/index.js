@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { HashRouter, Route } from "react-router-dom";
 import axios from "axios";
 import Users from "./Users";
 import Things from "./Things";
@@ -25,11 +26,13 @@ class Main extends Component {
   render() {
     const { users, things } = this.state;
     return (
-      <div id="main" className="container">
-        <h1>Acme Favorites</h1>
-        <Users users={users} />
-        <Things things={things} />
-      </div>
+      <HashRouter>
+        <div id="main" className="container">
+          <h1>Acme Favorites</h1>
+          <Route path="/users" render={() => <Users users={users} />} />
+          <Route path="/things" render={() => <Things things={things} />} />
+        </div>
+      </HashRouter>
     );
   }
 }
