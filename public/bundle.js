@@ -106,24 +106,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-    constructor() {
-        super();
-        this.state = {
-            users: [],
-            things: []
-        };
-    }
-    render() {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            "div",
-            { id: "main" },
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                "h1",
-                null,
-                "Acme Favorites"
-            )
-        );
-    }
+  constructor() {
+    super();
+    this.state = {
+      users: [],
+      things: []
+    };
+  }
+  componentDidMount() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/users").then(users => users.data).then(users => this.setState({ users })).then(() => axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/things")).then(things => things.data).then(things => this.setState({ things })).catch(ex => console.error(ex.message));
+  }
+  render() {
+    const { users, things } = this.state;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      "div",
+      { id: "main", className: "container" },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        "h1",
+        null,
+        "Acme Favorites"
+      )
+    );
+  }
 }
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById("app"));
