@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Users from "./Users";
+import Things from "./Things";
 
 class Main extends Component {
   constructor() {
@@ -25,6 +27,8 @@ class Main extends Component {
     return (
       <div id="main" className="container">
         <h1>Acme Favorites</h1>
+        <Users users={users} />
+        <Things things={things} />
       </div>
     );
   }

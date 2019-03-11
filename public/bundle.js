@@ -86,6 +86,90 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/Things.js":
+/*!**************************!*\
+  !*** ./client/Things.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Things = ({ things }) => {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        "ul",
+        null,
+        things.map(thing => {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                "li",
+                { key: thing.id },
+                thing.name,
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                    "ul",
+                    null,
+                    thing.favorites.map(fave => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                            "li",
+                            { key: fave.id },
+                            fave.user.name
+                        );
+                    })
+                )
+            );
+        })
+    );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Things);
+
+/***/ }),
+
+/***/ "./client/Users.js":
+/*!*************************!*\
+  !*** ./client/Users.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Users = ({ users }) => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "ul",
+    null,
+    users.map(user => {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        "li",
+        { key: user.id },
+        user.name,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          "ul",
+          null,
+          user.favorites.map(fave => {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+              "li",
+              { key: fave.id },
+              fave.thing.name
+            );
+          })
+        )
+      );
+    })
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Users);
+
+/***/ }),
+
 /***/ "./client/index.js":
 /*!*************************!*\
   !*** ./client/index.js ***!
@@ -101,6 +185,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users */ "./client/Users.js");
+/* harmony import */ var _Things__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Things */ "./client/Things.js");
+
+
 
 
 
@@ -125,7 +213,9 @@ class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         "h1",
         null,
         "Acme Favorites"
-      )
+      ),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_3__["default"], { users: users }),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_4__["default"], { things: things })
     );
   }
 }
