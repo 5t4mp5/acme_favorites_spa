@@ -86,6 +86,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/Nav.js":
+/*!***********************!*\
+  !*** ./client/Nav.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+const Nav = props => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "div",
+    { id: "navbar", className: "row" },
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+      { to: "/users" },
+      "Users"
+    ),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+      { to: "/things" },
+      "Things"
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Nav);
+
+/***/ }),
+
 /***/ "./client/Things.js":
 /*!**************************!*\
   !*** ./client/Things.js ***!
@@ -192,6 +228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Users */ "./client/Users.js");
 /* harmony import */ var _Things__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Things */ "./client/Things.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Nav */ "./client/Nav.js");
+
 
 
 
@@ -223,6 +261,7 @@ class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           null,
           "Acme Favorites"
         ),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], null),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) })
       )
