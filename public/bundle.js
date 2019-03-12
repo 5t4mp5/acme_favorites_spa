@@ -86,6 +86,71 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/Main.js":
+/*!************************!*\
+  !*** ./client/Main.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users */ "./client/Users.js");
+/* harmony import */ var _Things__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Things */ "./client/Things.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Nav */ "./client/Nav.js");
+
+
+
+
+
+
+
+class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
+    this.state = {
+      users: [],
+      things: []
+    };
+  }
+  componentDidMount() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/users").then(users => users.data).then(users => this.setState({ users })).then(() => axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/things")).then(things => things.data).then(things => this.setState({ things })).catch(ex => console.error(ex.message));
+  }
+  render() {
+    const { users, things } = this.state;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"],
+      null,
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        "div",
+        { id: "main", className: "container" },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          "h1",
+          null,
+          "Acme Favorites"
+        ),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { render: ({ location }) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], { users: users, things: things, location: location }) }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"],
+          null,
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_3__["default"], { users: users }) }),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_4__["default"], { things: things }) }),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], { to: "/users" })
+        )
+      )
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Main);
+
+/***/ }),
+
 /***/ "./client/Nav.js":
 /*!***********************!*\
   !*** ./client/Nav.js ***!
@@ -231,58 +296,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Users */ "./client/Users.js");
-/* harmony import */ var _Things__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Things */ "./client/Things.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Nav */ "./client/Nav.js");
+/* harmony import */ var _Main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Main */ "./client/Main.js");
 
 
 
 
-
-
-
-
-class Main extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  constructor() {
-    super();
-    this.state = {
-      users: [],
-      things: []
-    };
-  }
-  componentDidMount() {
-    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/users").then(users => users.data).then(users => this.setState({ users })).then(() => axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/things")).then(things => things.data).then(things => this.setState({ things })).catch(ex => console.error(ex.message));
-  }
-  render() {
-    const { users, things } = this.state;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"],
-      null,
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        "div",
-        { id: "main", className: "container" },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          "h1",
-          null,
-          "Acme Favorites"
-        ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { render: ({ location }) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], { users: users, things: things, location: location }) }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"],
-          null,
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/users", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users__WEBPACK_IMPORTED_MODULE_4__["default"], { users: users }) }),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], { path: "/things", render: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Things__WEBPACK_IMPORTED_MODULE_5__["default"], { things: things }) }),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], { to: "/users" })
-        )
-      )
-    );
-  }
-}
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById("app"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Main__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("app"));
 
 /***/ }),
 
